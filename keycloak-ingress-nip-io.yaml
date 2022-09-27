@@ -1,0 +1,22 @@
+apiVersion: networking.k8s.io/v1
+kind: Ingress
+metadata:
+  name: auth-ingress-nip-io
+  annotations:
+    kubernetes.io/ingress.class: nginx
+    nginx.ingress.kubernetes.io/backend-protocol: "http"
+spec:
+  tls:
+    - hosts:
+        - keycloak.192.168.49.2.nip.io
+  rules:
+  - host: keycloak.192.168.49.2.nip.io
+    http:
+      paths:
+      - pathType: Prefix
+        path: "/"
+        backend:
+          service:
+            name: keycloak01
+            port:
+              number: 9080
