@@ -88,8 +88,8 @@ spec:
           value: "2"
         - name: KC_HOSTNAME
           value: h1.localtest.me
-        - name: KC_HTTP_RELATIVE_PATH
-          value: "/auth"
+        # - name: KC_HTTP_RELATIVE_PATH
+        #   value: "/auth"
         ports:
           - name: jgroups
             containerPort: 7600

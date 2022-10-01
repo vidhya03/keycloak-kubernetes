@@ -1,6 +1,31 @@
+# Configure ingress
+enable the minikube ingress addon by running
+
+```
+minikube addons enable ingress
+
+```
+You can confirm by running the 
+
+```
+kubectl get pods -n ingress-nginx
+```
+
+
+## nginx-ingress
+
+Make sure you have nginx ingress installed too:
+
+```
+helm repo add ingress-nginx https://kubernetes.github.io/ingress-nginx
+helm install ingress-nginx -n ingress-nginx --create-namespace ingress-nginx/ingress-nginx
+```
+
+
 kubectl create ns amma
 kubectl config set-context --current --namespace=amma
 # deploy PostgreSQL cluster
+helm repo add bitnami https://charts.bitnami.com/bitnami
 helm install -n amma keycloak-db bitnami/postgresql-ha
 
 # config map for realm
@@ -24,7 +49,7 @@ Email Address []:vidhya@labkit.in -->
  kubectl create secret -n amma tls auth-labkit-tls-secret --key auth-labkit-tls.key --cert auth-labkit-tls.crt
 
 # Ingress for keycloak to access in auth.labkit.in
-kubectl apply -n amma -f keycloak-ingress-labkit.yaml
+  kubectl apply -n amma -f keycloak-ingress-labkit.yaml
 
 
 
