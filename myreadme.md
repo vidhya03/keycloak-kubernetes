@@ -51,7 +51,8 @@ Email Address []:vidhya@labkit.in -->
 # Ingress for keycloak to access in auth.labkit.in
   kubectl apply -n amma -f keycloak-ingress-labkit.yaml
 
-
+# Ingress for http
+kubectl apply -n amma -f keycloak-ingress-labkit-http.yaml
 
 
 
